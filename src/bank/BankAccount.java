@@ -82,7 +82,7 @@ System.out.printf("Available Balance: Rs. %.2f%n", balance);
 public void displayTransactions() {
 System.out.println("\n--- Transaction History ---");
 
-for (int i = 0; i &lt; transactions.size(); i++) {
+for (int i = 0; i < transactions.size(); i++) {
 System.out.println((i + 1) + ". " + transactions.get(i));
 }
 }
