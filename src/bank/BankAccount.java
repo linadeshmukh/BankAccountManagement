@@ -10,7 +10,7 @@ private final String accountNumber;
 private final String accountHolder;
 private double balance;
 
-private final List&lt;String&gt; transactions = new ArrayList&lt;&gt;();
+private final List<String> transactions = new ArrayList<>();
 
 public BankAccount(String accountNumber,
 String accountHolder,
@@ -21,8 +21,8 @@ this.accountHolder = accountHolder;
 this.balance = openingBalance;
 
 transactions.add(
-&quot;Account opened with balance: Rs. &quot;
-+ String.format(&quot;%.2f&quot;, openingBalance));
+"Account opened with balance: Rs. "
++ String.format("%.2f", openingBalance));
 }
 
 public String getAccountNumber() {
@@ -38,52 +38,52 @@ return balance;
 }
 
 public void deposit(double amount) {
-if (!Double.isFinite(amount) || amount &lt;= 0) {
-System.out.println(&quot;Enter a valid positive amount.&quot;);
+if (!Double.isFinite(amount) || amount <= 0) {
+System.out.println("Enter a valid positive amount.");
 return;
 }
 
 balance += amount;
 
 transactions.add(
-&quot;Deposited Rs. &quot; + String.format(&quot;%.2f&quot;, amount));
+"Deposited Rs. " + String.format("%.2f", amount));
 
-System.out.println(&quot;Deposit successful.&quot;);
-System.out.printf(&quot;Current balance: Rs. %.2f%n&quot;, balance);
+System.out.println("Deposit successful.");
+System.out.printf("Current balance: Rs. %.2f%n", balance);
 }
 
 public void withdraw(double amount) {
-if (!Double.isFinite(amount) || amount &lt;= 0) {
-System.out.println(&quot;Enter a valid positive amount.&quot;);
+if (!Double.isFinite(amount) || amount <= 0) {
+System.out.println("Enter a valid positive amount.");
 return;
 }
 
-if (amount &gt; balance) {
-System.out.println(&quot;Insufficient balance.&quot;);
+if (amount > balance) {
+System.out.println("Insufficient balance.");
 return;
 }
 
 balance -= amount;
 
 transactions.add(
-&quot;Withdrawn Rs. &quot; + String.format(&quot;%.2f&quot;, amount));
+"Withdrawn Rs. " + String.format("%.2f", amount));
 
-System.out.println(&quot;Withdrawal successful.&quot;);
-System.out.printf(&quot;Current balance: Rs. %.2f%n&quot;, balance);
+System.out.println("Withdrawal successful.");
+System.out.printf("Current balance: Rs. %.2f%n", balance);
 }
 
 public void displayBalance() {
-System.out.println(&quot;\n--- Account Details ---&quot;);
-System.out.println(&quot;Account Number: &quot; + accountNumber);
-System.out.println(&quot;Account Holder: &quot; + accountHolder);
-System.out.printf(&quot;Available Balance: Rs. %.2f%n&quot;, balance);
+System.out.println("\n--- Account Details ---");
+System.out.println("Account Number: " + accountNumber);
+System.out.println("Account Holder: " + accountHolder);
+System.out.printf("Available Balance: Rs. %.2f%n", balance);
 }
 
 public void displayTransactions() {
-System.out.println(&quot;\n--- Transaction History ---&quot;);
+System.out.println("\n--- Transaction History ---");
 
 for (int i = 0; i &lt; transactions.size(); i++) {
-System.out.println((i + 1) + &quot;. &quot; + transactions.get(i));
+System.out.println((i + 1) + ". " + transactions.get(i));
 }
 }
 }
