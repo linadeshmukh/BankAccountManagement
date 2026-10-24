@@ -8,20 +8,20 @@ public static void main(String[] args) {
 
 Scanner sc = new Scanner(System.in);
 
-System.out.println(&quot;================================&quot;);
-System.out.println(&quot; BANK ACCOUNT MANAGEMENT SYSTEM&quot;);
-System.out.println(&quot;================================&quot;);
+System.out.println("================================");
+System.out.println(" BANK ACCOUNT MANAGEMENT SYSTEM");
+System.out.println("================================");
 
-System.out.print(&quot;Enter account holder name: &quot;);
+System.out.print("Enter account holder name: ");
 String name = sc.nextLine().trim();
 
 if (name.isEmpty()) {
-System.out.println(&quot;Name cannot be empty.&quot;);
+System.out.println("Name cannot be empty.");
 sc.close();
 return;
 }
 
-System.out.print(&quot;Enter opening balance (Rs.): &quot;);
+System.out.print("Enter opening balance (Rs.): ");
 
 double openingBalance;
 
@@ -29,58 +29,58 @@ try {
 openingBalance = Double.parseDouble(sc.nextLine().trim());
 
 if (!Double.isFinite(openingBalance)
-|| openingBalance &lt; 0) {
+|| openingBalance < 0) {
 System.out.println(
-&quot;Opening balance must be zero or greater.&quot;);
+"Opening balance must be zero or greater.");
 sc.close();
 
 return;
 }
 } catch (NumberFormatException e) {
-System.out.println(&quot;Please enter a valid amount.&quot;);
+System.out.println("Please enter a valid amount.");
 sc.close();
 return;
 }
 
 // Simple demo account number
-String accountNumber = &quot;BA1001&quot;;
+String accountNumber = "BA1001";
 
 BankAccount account =
 new BankAccount(accountNumber, name, openingBalance);
 
-System.out.println(&quot;\nAccount created successfully!&quot;);
-System.out.println(&quot;Your account number: &quot; + accountNumber);
+System.out.println("\nAccount created successfully!");
+System.out.println("Your account number: " + accountNumber);
 
 int choice = 0;
 
 while (choice != 6) {
-System.out.println(&quot;\n========== MAIN MENU ==========&quot;);
-System.out.println(&quot;1. Deposit Money&quot;);
-System.out.println(&quot;2. Withdraw Money&quot;);
-System.out.println(&quot;3. Check Balance&quot;);
-System.out.println(&quot;4. View Transaction History&quot;);
-System.out.println(&quot;5. Account Details&quot;);
-System.out.println(&quot;6. Exit&quot;);
-System.out.println(&quot;===============================&quot;);
+System.out.println("\n========== MAIN MENU ==========");
+System.out.println("1. Deposit Money");
+System.out.println("2. Withdraw Money");
+System.out.println("3. Check Balance");
+System.out.println("4. View Transaction History");
+System.out.println("5. Account Details");
+System.out.println("6. Exit");
+System.out.println("===============================");
 
-System.out.print(&quot;Enter your choice: &quot;);
+System.out.print("Enter your choice: ");
 String input = sc.nextLine().trim();
 
 try {
 choice = Integer.parseInt(input);
 } catch (NumberFormatException e) {
-System.out.println(&quot;Please enter a number from 1 to 6.&quot;);
+System.out.println("Please enter a number from 1 to 6.");
 continue;
 }
 
 switch (choice) {
 case 1:
-System.out.print(&quot;Enter deposit amount (Rs.): &quot;);
+System.out.print("Enter deposit amount (Rs.): ");
 processAmount(sc, account, true);
 break;
 
 case 2:
-System.out.print(&quot;Enter withdrawal amount (Rs.): &quot;);
+System.out.print("Enter withdrawal amount (Rs.): ");
 processAmount(sc, account, false);
 break;
 
@@ -98,12 +98,12 @@ break;
 
 case 6:
 System.out.println(
-&quot;Thank you for using Bank Account Management.&quot;);
+"Thank you for using Bank Account Management.");
 break;
 
 default:
 System.out.println(
-&quot;Invalid choice. Please select 1 to 6.&quot;);
+"Invalid choice. Please select 1 to 6.");
 }
 }
 
@@ -123,7 +123,7 @@ account.withdraw(amount);
 }
 
 } catch (NumberFormatException e) {
-System.out.println(&quot;Please enter a valid numeric amount.&quot;);
+System.out.println("Please enter a valid numeric amount.");
 }
 }
 }
