@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5f9;
+            text-align: center;
+            padding: 40px;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: auto;
+        }
+        input, button {
+            padding: 10px;
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Information System</h1>
+        <p>Enter student details below.</p>
+
+        <input id="name" placeholder="Student Name">
+        <input id="course" placeholder="Course Name">
+        <button onclick="showDetails()">Submit</button>
+
+        <h3 id="result"></h3>
+    </div>
+
+    <script>
+        function showDetails() {
+            const name = document.getElementById("name").value;
+            const course = document.getElementById("course").value;
+
+            if (!name.trim() || !course.trim()) {
+                document.getElementById("result").textContent =
+                    "Please enter both details.";
+                return;
+            }
+
+            document.getElementById("result").textContent =
+                "Student: " + name + " | Course: " + course;
+        }
+    </script>
+</body>
+</html>
